@@ -1,2 +1,68 @@
 @charset "UTF-8";
 
+
+body {
+  background-color: #f8f9fa; /* bg-light */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main container center*/
+.container-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-height:400px; */
+  height: 100vh; /* vh-100 */
+}
+
+/* card of login */
+.card-login {
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); /* shadow-lg */
+  padding: 1.5rem; /* p-4 */
+  border-radius: 1rem; /* rounded-4 */
+}
+
+/* title */
+.card-login h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #0d6efd; /* text-primary */
+}
+
+/* Footer */
+footer {
+  background-color: #212529; /* bg-dark */
+  color: #f8f9fa; /* text-light */
+  text-align: center;
+  padding: 1rem 0; /* py-3 */
+  margin-top: auto; /* mt-auto */
+}
+footer p {
+  margin-bottom: 0; /* mb-0 */
+}
+
+/* Error message */
+.error-message {
+  background-color: #f8d7da; 
+  color: #721c24; 
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 500;
+
+  /* Initial animation */
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+/* Hidden state */
+.error-message.fade-out {
+  opacity: 0;
+}

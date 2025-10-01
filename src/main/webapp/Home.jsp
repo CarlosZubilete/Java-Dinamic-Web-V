@@ -5,60 +5,73 @@
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
-<
-jsp
- 
-:include
- 
-page
-="
-styles\Home
-.css
-"
->
-</
-jsp
-:include
->
+<jsp:includepage="styles\Home.css"></jsp:include>
 </style>
-<title>Web Project</title>
+<title>Web Project V</title>
 <!-- Bootstrap CSS from CDN -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 </head>
+<
 <body>
-
-	<div
-		class="container d-flex justify-content-center align-items-center vh-100">
-		<div class="card shadow-lg p-4 rounded-4"
-			style="max-width: 400px; width: 100%;">
-			<h3 class="text-center mb-4 text-primary">Login</h3>
+	<div class="container-login">
+		<div class="card-login">
+			<h3>Iniciar Sesion</h3>
 			<!-- Form -->
-			<form action="" method="post">
+			<form action="ServletHome" method="post">
 				<div class="mb-3">
-					<label for="usuario" class="form-label">User</label> <input
-						type="text" class="form-control" id="usuario" name="usuario"
-						placeholder="Ingrese su usuario" required>
+					<label for="username" class="form-label">Usuario:</label> <input
+						type="text" class="form-control" id="username" name="username"
+						placeholder="Ingrese su nombre de usuario" required>
 				</div>
 
 				<div class="mb-3">
-					<label for="contrasena" class="form-label">Password</label> <input
-						type="password" class="form-control" id="contrasena"
-						name="contrasena" placeholder="Ingrese su contraseña" required>
+					<label for="password" class="form-label">Contraseña:</label> <input
+						type="password" class="form-control" id="password" name="password"
+						placeholder="Ingrese su contraseña" required>
 				</div>
 
-				<button type="submit" class="btn btn-primary w-100">Send</button>
+				<input type="submit" name="btnSend" class="btn btn-primary w-100"
+					value="Ingresar" />
 			</form>
 		</div>
+		<!-- If the user is invalid -->
+		<%
+		    if (request.getAttribute("message") != null) { 
+		%>
+		    <p class="error-message" id="error-msg">Usuario invalido</p>
+		<% 
+		    } 
+		%>		
 	</div>
-	<!-- Footer with copyright -->
-	<footer class="bg-dark text-light text-center py-3 mt-auto">
-		<p class="mb-0">&copy; 2025 TP5_UNT_FRGP_5 | UNT-FRGP</p>
+
+
+
+	<!-- Footer -->
+	<footer>
+		<p>&copy; 2025 GRUPO 11 | PR4 | UNT-FRGP</p>
 	</footer>
+
 	<!-- Bootstrap JS -->
 	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+	</script>
+	
+	<script>
+  // whether there is a erros
+	  const errorMsg = document.getElementById("error-msg");
+	  if (errorMsg) {
+	    // After 3 seg, add the class.
+	    setTimeout(() => {
+	      errorMsg.classList.add("fade-out");
+	    }, 3000);
+	
+	    // After 4 seg, delete from DOM.
+	    setTimeout(() => {
+	      errorMsg.remove();
+	    }, 4000);
+	  }
+  </script>
 </body>
 </html>
