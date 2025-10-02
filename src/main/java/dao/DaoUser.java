@@ -7,16 +7,17 @@ import java.sql.SQLException;
 
 import model.User;
 
-public class DaoUser implements IDaoUser{
+public class DaoUser implements IDaoUser {
 
 	public DaoUser() {
 	};
-
+	
+	@Override
 	public Boolean verifyUser(User user) {
 		boolean exists = false;
-				
+
 		String query = "SELECT * FROM usuarios where usuario = ? AND contrasena = ?";
-		
+
 		try (Connection conn = new Conexion().getConection()) {
 
 			PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -34,6 +35,5 @@ public class DaoUser implements IDaoUser{
 
 		return exists;
 	}
-
 
 }

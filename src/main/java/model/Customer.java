@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Customer {
 
 	private int customerId;
-	private String nationalId;
-	private String taxId;
+	private String nationalId; // DNI
+	private String taxId; // CUIL
 	private String firstName;
 	private String lastName;
 	// TODO: ask teacher for about char or enum to sex variable;

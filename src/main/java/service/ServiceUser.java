@@ -10,6 +10,7 @@ public class ServiceUser implements IDaoUser{
 	}
 
 	// TODO: Here, should we verify the user ?
+	@Override
 	public Boolean verifyUser(User user) {
 		System.out.println("Service User : " + user.toString());
 		DaoUser daoUser = new DaoUser();
