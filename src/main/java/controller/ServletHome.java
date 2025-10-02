@@ -36,7 +36,7 @@ public class ServletHome extends HttpServlet {
 			boolean result = this.verifyLogin(user, password);
 
 			if (result) {
-				req.setAttribute("usermae", user);
+				req.setAttribute("usermame", user);
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/ClientList.jsp");
 				dispatcher.forward(req, res);
 			} else {
