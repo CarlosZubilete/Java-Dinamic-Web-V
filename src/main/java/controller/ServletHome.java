@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.*;
 import service.*;
 
 @WebServlet("/ServletHome")
@@ -27,12 +29,12 @@ public class ServletHome extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 	    throws ServletException, IOException {
 		if (req.getParameter("btnSend") != null) {
-			
+
 			System.out.println("I'm here, do post");
 			String user = req.getParameter("username").toString();
 			String password = req.getParameter("password").toString();
 			boolean result = this.verifyLogin(user, password);
-			
+
 			if (result) {
 				req.setAttribute("usermae", user);
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/ClientList.jsp");
@@ -49,9 +51,9 @@ public class ServletHome extends HttpServlet {
 	}
 
 	private Boolean verifyLogin(String username, String password) {
+		User user = new User(username, password);
 		ServiceUser serviceUser = new ServiceUser();
-		return serviceUser.verifyUser(username, password);
-
+		return serviceUser.verifyUser(user);
 	}
 
 }

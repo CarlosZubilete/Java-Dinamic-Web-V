@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import model.User;
 
-public class DaoUser {
+public class DaoUser implements IDaoUser{
 
 	public DaoUser() {
 	};
@@ -34,4 +34,6 @@ public class DaoUser {
 
 		return exists;
 	}
+
+
 }

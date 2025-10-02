@@ -1,20 +1,16 @@
 package service;
 
-import dao.DaoUser;
+import dao.*;
 import model.User;
 
-public class ServiceUser {
+public class ServiceUser implements IDaoUser{
 
 	public ServiceUser() {
 		
 	}
 
 	// TODO: Here, should we verify the user ?
-	public boolean verifyUser(String username, String password) {
-		User user = new User();
-		user.setUsername(username);
-		user.setPassword(password);
-
+	public Boolean verifyUser(User user) {
 		System.out.println("Service User : " + user.toString());
 		DaoUser daoUser = new DaoUser();
 		return daoUser.verifyUser(user);
