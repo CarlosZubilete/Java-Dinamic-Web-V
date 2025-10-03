@@ -30,9 +30,11 @@
   <nav class="sidebar">
     <h3 class="sidebar__title">Menú</h3>
     <ul class="sidebar__list">
-      <li class="sidebar__item">Listado Cliente</li>
+      <li class="sidebar__item active">Listado Cliente</li>
       <li class="sidebar__item">Alta Cliente</li>
-      <li class="sidebar__item">Cerrar Session</li>
+      <li class="sidebar__item">
+      	<a href="ServletHome?session=1" class="sidebar__link" >Cerrar Session</a>
+      </li>
     </ul>
   </nav>
 

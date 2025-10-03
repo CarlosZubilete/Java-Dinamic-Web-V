@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.*;
 import service.*;
@@ -23,6 +24,17 @@ public class ServletHome extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 	    throws ServletException, IOException {
+		System.out.println("I'm inside doGet ");
+		if (req.getParameter("session") != null) {
+			
+			HttpSession session = req.getSession(false);
+			if (session != null) {
+				// session.invalidate(); // Delete all Session
+				session.removeAttribute("login"); // Delete session Login
+			}
+
+			res.sendRedirect("Home.jsp"); //
+		}
 
 	}
 
@@ -38,14 +50,13 @@ public class ServletHome extends HttpServlet {
 			if (result) {
 				// Create the session variable
 				req.getSession().setAttribute("login", user);
-				System.out.println("Session " + user );
+				System.out.println("Session " + user);
 				res.sendRedirect("ServletClientList");
 //				req.setAttribute("username", user);
 //				
 //				RequestDispatcher dispatcher = req.getRequestDispatcher("/ClientList.jsp");
 //				dispatcher.forward(req, res);
-			
-				
+
 			} else {
 				String message = "Error, Usuario no valido";
 				req.setAttribute("message", message);
@@ -62,6 +73,5 @@ public class ServletHome extends HttpServlet {
 		ServiceUser serviceUser = new ServiceUser();
 		return serviceUser.verifyUser(user);
 	}
-
 
 }
