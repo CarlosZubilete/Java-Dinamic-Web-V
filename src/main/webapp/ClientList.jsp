@@ -1,3 +1,5 @@
+<%@ page import="model.Customer" %>
+<%@ page import="java.util.LinkedList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,7 +24,6 @@
 			$('#myTable').DataTable();
 		});
 	</script>
-
 </head>
 <body class="layout">
   <!-- Navigation | Left side -->
@@ -31,6 +32,7 @@
     <ul class="sidebar__list">
       <li class="sidebar__item">Listado Cliente</li>
       <li class="sidebar__item">Alta Cliente</li>
+      <li class="sidebar__item">Cerrar Session</li>
     </ul>
   </nav>
 
@@ -39,26 +41,46 @@
     <h2 class="main-content__title">Listado de Clientes</h2>
     <p class="main-content__user">
       <!-- TODO: This have to be a session variable -->
-      Usuario: <%=request.getAttribute("usermame")%>
+      Usuario: <%=session.getAttribute("login")%>
     </p>
-    <!-- FUTLAN AGREGAR MÁS COSAS -->
+    <!-- Add the rest of the list-->
+    <% 
+    	LinkedList<Customer> list = new LinkedList<>(); 
+    	if (request.getAttribute("list-client") != null)
+    		list =(LinkedList<Customer>)request.getAttribute("list-client");
+    %>
 	    <table id="myTable" class="display">
+    	<% if (list != null ) { %>
 		    <thead>
 	        <tr>
-	            <th>Column 1</th>
-	            <th>Column 2</th>
+	            <th>DNI</th>
+	            <th>CUL</th>
+	            <th>Nombre y Apellido</th>
+	            <th>Sexo</th>
+	            <th>Fecha de Nacimiento</th>
+	            <th>Dirección</th>
+	            <th>Nacionalidad</th>
+	            <th>Localidad</th>
+							<th>Provincia</th>
 	        </tr>
 	    	</thead>
+        <% for (Customer customer : list ) { %>
 		    <tbody>
 	        <tr>
-            <td>Row 1 Data 1</td>
-            <td>Row 1 Data 2</td>
+            <td><%=customer.getCustomerId()%></td>
+            <td><%=customer.getTaxId()%></td>
+            <td><%=customer.getFirstName() + " " 
+            	+ customer.getLastName()%> </td>
+            <td><%=customer.getGender()%></td>
+            <td><%=customer.getBirthDate()%></td>
+            <td><%=customer.getAddress()%></td>
+            <td><%=customer.getNationality()%></td>
+            <td><%=customer.getCity()%></td>
+            <td><%=customer.getProvince()%></td>
 	        </tr>
-	        <tr>
-            <td>Row 2 Data 1</td>
-            <td>Row 2 Data 2</td>
-	        </tr>
+		    	<%}%>
 		    </tbody>
+		    <%}%>
 		</table>
   </main>
   

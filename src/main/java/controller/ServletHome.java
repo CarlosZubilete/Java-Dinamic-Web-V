@@ -30,15 +30,22 @@ public class ServletHome extends HttpServlet {
 	    throws ServletException, IOException {
 		if (req.getParameter("btnSend") != null) {
 
-			System.out.println("I'm here, do post");
+//			System.out.println("I'm here, do post");
 			String user = req.getParameter("username").toString();
 			String password = req.getParameter("password").toString();
 			boolean result = this.verifyLogin(user, password);
 
 			if (result) {
-				req.setAttribute("usermame", user);
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/ClientList.jsp");
-				dispatcher.forward(req, res);
+				// Create the session variable
+				req.getSession().setAttribute("login", user);
+				System.out.println("Session " + user );
+				res.sendRedirect("ServletClientList");
+//				req.setAttribute("username", user);
+//				
+//				RequestDispatcher dispatcher = req.getRequestDispatcher("/ClientList.jsp");
+//				dispatcher.forward(req, res);
+			
+				
 			} else {
 				String message = "Error, Usuario no valido";
 				req.setAttribute("message", message);
@@ -55,5 +62,6 @@ public class ServletHome extends HttpServlet {
 		ServiceUser serviceUser = new ServiceUser();
 		return serviceUser.verifyUser(user);
 	}
+
 
 }
