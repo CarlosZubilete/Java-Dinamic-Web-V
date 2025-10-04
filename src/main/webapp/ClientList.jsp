@@ -16,8 +16,11 @@
 		
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
 	<script type="text/javascript" charset="utf8"
 		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<!-- jQuery -->
+<!-- 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -30,8 +33,12 @@
   <nav class="sidebar">
     <h3 class="sidebar__title">Menú</h3>
     <ul class="sidebar__list">
-      <li class="sidebar__item active">Listado Cliente</li>
-      <li class="sidebar__item">Alta Cliente</li>
+      <li class="sidebar__item">
+      	<a class="sidebar__link active" >Listado Clientes</a>
+      </li>
+      <li class="sidebar__item">
+      	<a href="AddClient.jsp" class="sidebar__link" >Alta Cliente</a>
+      </li>
       <li class="sidebar__item">
       	<a href="ServletHome?session=1" class="sidebar__link" >Cerrar Session</a>
       </li>
@@ -67,7 +74,7 @@
 	        </tr>
 	    	</thead>
         <% for (Customer customer : list ) { %>
-		    <tbody>
+		  
 	        <tr>
             <td><%=customer.getCustomerId()%></td>
             <td><%=customer.getTaxId()%></td>
@@ -81,8 +88,8 @@
             <td><%=customer.getProvince()%></td>
 	        </tr>
 		    	<%}%>
-		    </tbody>
 		    <%}%>
+		 
 		</table>
   </main>
   

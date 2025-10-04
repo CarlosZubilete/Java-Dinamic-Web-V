@@ -30,7 +30,7 @@ public class ServletClientList extends HttpServlet {
 		System.out.println("I'm here: ServletClientList");
 
 		if(req.getSession().getAttribute("login") != null ) {
-//		if (req.getAttribute("username") != null) {
+
 			// We got the list.
 			listClient = service.find();
 			
