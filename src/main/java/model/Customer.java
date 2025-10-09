@@ -20,6 +20,24 @@ public class Customer {
 	private String phoneNumber;
 
 	public Customer() {
+
+	}
+
+	public Customer(String nationalId, String taxId, String firstName, String lastName, String gender,
+	    LocalDate birthDate, String address, String nationality, String city, String province,
+	    String email, String phoneNumber) {
+		this.nationalId = nationalId;
+		this.taxId = taxId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birthDate = birthDate;
+		this.address = address;
+		this.nationality = nationality;
+		this.city = city;
+		this.province = province;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public int getCustomerId() {

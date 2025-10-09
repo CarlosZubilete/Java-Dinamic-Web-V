@@ -23,7 +23,7 @@ public class Conexion {
 		Connection connection = null;
 		try {
 			connection = DriverManager.getConnection(host + nameDataBase, this.user, this.password);
-			System.out.println("WE GOT THE CONNECTION"); // TODO: Check if get the connection 
+			// System.out.println("WE GOT THE CONNECTION"); // TODO: Check if get the connection 
 			return connection;
 
 		} catch (SQLException e) {

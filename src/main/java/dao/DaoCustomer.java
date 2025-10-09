@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+
 import java.time.LocalDate;
 import model.Customer;
 
@@ -15,7 +16,7 @@ public class DaoCustomer implements IDaoCustomer {
 
 	@Override
 	public LinkedList<Customer> find() {
-		LinkedList<Customer> list = new LinkedList<>() ;
+		LinkedList<Customer> list = new LinkedList<>();
 		String query = "SELECT * FROM clientes";
 
 		try (Connection conn = new Conexion().getConection()) {
@@ -45,14 +46,41 @@ public class DaoCustomer implements IDaoCustomer {
 			}
 
 			conn.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			System.out.println("We'd got all LinkedList<Customer> :D");
 		}
-		
+
 		return list;
+	}
+
+	@Override
+	public Boolean addOne(Customer customer) {
+		int rowCount = 0;
+
+		String query = " INSERT INTO clientes (dni, cuil ,\r\n"
+		    + "nombre, apellido, sexo, fecha_nacimiento, direccion,\r\n"
+		    + "nacionalidad, localidad, provincia, correo_electronico, telefono)\r\n" + " VALUES ('"
+		    + customer.getNationalId() + "', '" + customer.getTaxId() + "', '" + customer.getFirstName()
+		    + "', '" + customer.getLastName() + "', '" + customer.getGender() + "', '"
+		    + customer.getBirthDate() + "'," + "'" + customer.getAddress() + "', '"
+		    + customer.getNationality() + "', '" + customer.getCity() + "', '" + customer.getProvince()
+		    + "', '" + customer.getEmail() + "'," + "'" + customer.getPhoneNumber() + "');";
+
+		System.out.println("DaoCustomer | query = " + query);
+
+		try (Connection conn = new Conexion().getConection()) {
+			Statement statement = conn.createStatement();
+			rowCount = statement.executeUpdate(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		if (rowCount == 1)
+			return true;
+		else
+			return false;
+
 	};
 
 }
