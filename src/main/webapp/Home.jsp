@@ -34,16 +34,16 @@
 
 				<input type="submit" name="btnSend" class="btn btn-primary w-100"
 					value="Ingresar" />
-			</form>
+			</form>	
 		</div>
-		<!-- If the user is invalid -->
+				<!-- If the user is invalid -->
 		<%
-		    if (request.getAttribute("message") != null) { 
+	    if (request.getAttribute("message") != null) { 
 		%>
-		    <p class="error-message" id="error-msg">Usuario invalido</p>
+	    <p class="error-message" id="error-msg">Usuario invalido</p>
 		<% 
-		    } 
-		%>		
+	    } 
+		%>	
 	</div>
 
 

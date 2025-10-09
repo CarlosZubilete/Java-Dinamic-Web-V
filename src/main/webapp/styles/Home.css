@@ -5,7 +5,7 @@ body {
   background-color: #f8f9fa; /* bg-light */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 /* Main container center*/
@@ -14,8 +14,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* min-height:400px; */
-  height: 100vh; /* vh-100 */
+  height: 100%;
 }
 
 /* card of login */
@@ -33,25 +32,17 @@ body {
   margin-bottom: 1.5rem;
   color: #0d6efd; /* text-primary */
 }
-
-/* Footer */
-footer {
-  background-color: #212529; /* bg-dark */
-  color: #f8f9fa; /* text-light */
-  text-align: center;
-  padding: 1rem 0; /* py-3 */
-  margin-top: auto; /* mt-auto */
-}
 footer p {
-  margin-bottom: 0; /* mb-0 */
+  margin-bottom: 0;
 }
 
 /* Error message */
 .error-message {
+	position: relative;
   background-color: #f8d7da; 
   color: #721c24; 
   border: 1px solid #f5c6cb;
-  padding: 0.75rem 1rem;
+  padding: 0.25rem .50rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -65,4 +56,14 @@ footer p {
 /* Hidden state */
 .error-message.fade-out {
   opacity: 0;
+}
+
+/* Footer */
+footer {
+  margin-bottom: 0;
+  background-color: #212529; 
+  color: #f8f9fa; 
+  text-align: center;
+  padding: 1rem 0; 
+  margin-top: auto; 
 }
