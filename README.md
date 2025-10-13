@@ -20,7 +20,7 @@ mysql -u your_username -p < query_tp5.sql
 
 ## Features Demonstrated
 
-As shown in the video (https://youtu.be/RxhwJwjCqHQ):
+As shown in the video [Java - Web Dynamic ](https://youtu.be/RxhwJwjCqHQ):
 
 - **Login/Logout UI:**
   - Users can log in with their credentials (e.g., admin/pass).
@@ -54,13 +54,10 @@ As shown in the video (https://youtu.be/RxhwJwjCqHQ):
 3. Deploy the project to the Tomcat server.
 4. Access the application via your browser (e.g., `http://localhost:8080/Web_Project_V/`).
 
-## Documentation
-
-See the `doc/` folder for PDF guides and notes on layered programming, database tables, and variable types.
-
 ## Author
 
 This project was developed as a college assignment to demonstrate best practices in Java web application development using the MVC pattern and layered architecture.
 
 ---
+
 Feel free to explore, modify, and use this project for learning purposes!
